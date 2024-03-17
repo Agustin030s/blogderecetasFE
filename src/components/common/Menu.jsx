@@ -6,7 +6,7 @@ import logo from '../../assets/logo.png';
 
 const Menu = () => {
   return (
-    <Navbar className='bgNavBar' data-bs-theme="dark">
+    <Navbar expand="lg" className='bgNavBar' data-bs-theme="dark">
       <Container>
         <Navbar.Brand href="#home">
           <img src={logo} alt="" className='img-fluid logo'/>
