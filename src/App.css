@@ -1,0 +1,49 @@
+@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+#root{
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+h1{
+  font-family: "Great Vibes", cursive;
+  font-weight: 400;
+  font-style: normal;
+}
+
+h5, a{
+  font-family: "Montserrat", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.bgNavBar{
+  background-color: #8B4513;
+}
+
+.logo{
+  height: 70px;
+}
+
+footer{
+  background-image: url("https://colanta.com/aprende-de/wp-content/uploads/2019/03/Tipos-de-asados1.jpg");
+  background-size: cover;
+  background-position: center;
+}
+
+.footerContainer{
+  background-color: rgba(0, 0, 0, 0.6); 
+}
+
+footer p {
+  padding: 10px; 
+}
+
+.redesIcon{
+  color: white;
+}
+
+.redesIcon:hover {
+  color: red;
+}
