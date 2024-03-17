@@ -6,10 +6,18 @@
   min-height: 100vh;
 }
 
+.mainContainer{
+  flex-grow: 1;
+}
+
 h1{
   font-family: "Great Vibes", cursive;
-  font-weight: 400;
-  font-style: normal;
+  font-size: 100px;
+}
+
+h2{
+  font-family: "Great Vibes", cursive;
+  font-size: 50px;
 }
 
 h5, a{
@@ -46,4 +54,17 @@ footer p {
 
 .redesIcon:hover {
   color: red;
+}
+
+.tituloPrincipal{
+  background-image: url("https://asadordelrey.es/wp-content/uploads/2017/11/cropped-AR-brasas-cabecera_2000x1200.jpg");
+  background-size: cover;
+  background-position: center;
+  padding: 100px;
+}
+
+.acordionHeader{
+  font-family: "Montserrat", sans-serif;
+  font-weight: 400;
+  font-style: normal;
 }
