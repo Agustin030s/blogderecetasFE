@@ -2,8 +2,8 @@ import { Accordion } from "react-bootstrap";
 
 const InfoAdicional = () => {
   return (
-    <section className="my-4">
-      <h2 className="mb-3">Información Adicional</h2>
+    <section className="mb-4">
+      <h2 className="mb-3 text-center text-md-start">Información Adicional</h2>
       <Accordion defaultActiveKey="0">
         <Accordion.Item eventKey="0">
           <Accordion.Header className="acordionHeader">

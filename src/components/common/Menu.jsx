@@ -17,6 +17,7 @@ const Menu = () => {
             <Nav.Link href="#home">Inicio</Nav.Link>
             <Nav.Link href="#link">Recetas</Nav.Link>
             <Nav.Link href="#link">Nosotros</Nav.Link>
+            <Nav.Link href="#link">Administrador</Nav.Link>
             <NavDropdown title="Ingresar" id="basic-nav-dropdown">
               <NavDropdown.Item href="#action/3.2">
                 Iniciar Sesión

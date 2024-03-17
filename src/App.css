@@ -20,7 +20,7 @@ h2 {
   font-size: 50px;
 }
 
-h5,
+h3, h5,
 a,
 p {
   font-family: "Montserrat", sans-serif;
@@ -98,6 +98,13 @@ footer p {
 .carousel-control-next:focus {
   background-color: transparent !important;
   outline: none !important;
+}
+
+.imgRecetasDestacadas{
+  height: 450px;
+  width: 100%;
+  filter: brightness(0.5);
+  object-fit: cover;
 }
 
 /* Estilos para dispositivos medianos */

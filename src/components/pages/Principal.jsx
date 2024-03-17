@@ -2,6 +2,7 @@ import BannerPrincipal from "./aditional/BannerPrincipal";
 import { Container } from "react-bootstrap";
 import InfoAdicional from "./aditional/InfoAdicional";
 import Introduccion from "./aditional/Introduccion";
+import RecetasDestacadas from "./aditional/RecetasDestacadas";
 
 const Principal = () => {
   return (
@@ -9,7 +10,7 @@ const Principal = () => {
       <BannerPrincipal></BannerPrincipal>
       <Container>
         <Introduccion></Introduccion>
-        <h2>Recetas destacadas</h2>
+        <RecetasDestacadas></RecetasDestacadas>
         <InfoAdicional></InfoAdicional>
       </Container>
     </div>
