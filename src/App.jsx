@@ -4,12 +4,14 @@ import Menu from "./components/common/Menu";
 import "./App.css";
 import Footer from "./components/common/Footer";
 import Principal from "./components/pages/Principal";
+import Nosotros from "./components/pages/Nosotros";
 
 function App() {
   return (
     <>
       <Menu></Menu>
-      <Principal></Principal>
+      {/* <Principal></Principal> */}
+      <Nosotros></Nosotros>
       <Footer></Footer>
     </>
   );

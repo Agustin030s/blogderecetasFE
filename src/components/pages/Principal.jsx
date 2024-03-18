@@ -7,7 +7,7 @@ import RecetasDestacadas from "./aditional/RecetasDestacadas";
 const Principal = () => {
   return (
     <div className="mainContainer">
-      <BannerPrincipal></BannerPrincipal>
+      <BannerPrincipal texto="Brasas y Sazón"></BannerPrincipal>
       <Container>
         <Introduccion></Introduccion>
         <RecetasDestacadas></RecetasDestacadas>
