@@ -6,7 +6,7 @@ const Introduccion = () => {
       <h2 className="mb-3 text-center text-md-start">¡Bienvenidos!</h2>
       <Row className="align-items-center">
         <Col md="6" className="mb-2 mb-md-0">
-        <Carousel interval={3000}>
+        <Carousel interval={3000} controls={false} indicators={false} pause={false}>
             <Carousel.Item>
               <Image
                 src="https://www.clarin.com/2022/03/07/nt5D4YWDb_2000x1500__1.jpg"

@@ -5,15 +5,18 @@ import "./App.css";
 import Footer from "./components/common/Footer";
 import Principal from "./components/pages/Principal";
 import Nosotros from "./components/pages/Nosotros";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 
 function App() {
   return (
-    <>
+    <BrowserRouter>
       <Menu></Menu>
-      {/* <Principal></Principal> */}
-      <Nosotros></Nosotros>
+      <Routes>
+        <Route path="/" element={<Principal></Principal>}></Route>
+        <Route path="/nosotros" element={<Nosotros></Nosotros>}></Route>
+      </Routes>
       <Footer></Footer>
-    </>
+    </BrowserRouter>
   );
 }
 

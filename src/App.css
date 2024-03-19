@@ -85,21 +85,6 @@ footer p {
   object-fit: cover;
 }
 
-.carousel-control-prev,
-.carousel-control-next {
-  background-color: transparent !important;
-  border: none !important;
-  outline: none !important;
-}
-
-.carousel-control-prev:hover,
-.carousel-control-next:hover,
-.carousel-control-prev:focus,
-.carousel-control-next:focus {
-  background-color: transparent !important;
-  outline: none !important;
-}
-
 .imgRecetasDestacadas{
   height: 450px;
   width: 100%;

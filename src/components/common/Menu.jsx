@@ -3,6 +3,7 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import logo from '../../assets/logo.png';
+import { NavLink } from 'react-router-dom';
 
 const Menu = () => {
   return (
@@ -14,9 +15,9 @@ const Menu = () => {
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="ms-auto">
-            <Nav.Link href="#home">Inicio</Nav.Link>
-            <Nav.Link href="#link">Recetas</Nav.Link>
-            <Nav.Link href="#link">Nosotros</Nav.Link>
+            <NavLink to="/" className="nav-link">Inicio</NavLink>
+            <NavLink to="/" className="nav-link">Recetas</NavLink>
+            <NavLink to="/nosotros" className="nav-link">Nosotros</NavLink>
             <Nav.Link href="#link">Administrador</Nav.Link>
             <NavDropdown title="Ingresar" id="basic-nav-dropdown">
               <NavDropdown.Item href="#action/3.2">
