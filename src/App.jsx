@@ -5,6 +5,7 @@ import "./App.css";
 import Footer from "./components/common/Footer";
 import Principal from "./components/pages/Principal";
 import Nosotros from "./components/pages/Nosotros";
+import Error404 from "./components/pages/Error404";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 
 function App() {
@@ -14,6 +15,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Principal></Principal>}></Route>
         <Route path="/nosotros" element={<Nosotros></Nosotros>}></Route>
+        <Route path="/*" element={<Error404></Error404>}></Route>
       </Routes>
       <Footer></Footer>
     </BrowserRouter>

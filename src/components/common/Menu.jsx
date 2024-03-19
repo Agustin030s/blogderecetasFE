@@ -16,15 +16,15 @@ const Menu = () => {
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="ms-auto">
             <NavLink to="/" className="nav-link">Inicio</NavLink>
-            <NavLink to="/" className="nav-link">Recetas</NavLink>
+            <NavLink to="/recetas" className="nav-link">Recetas</NavLink>
             <NavLink to="/nosotros" className="nav-link">Nosotros</NavLink>
-            <Nav.Link href="#link">Administrador</Nav.Link>
+            <NavLink to="/administrador" className="nav-link">Administrador</NavLink>
             <NavDropdown title="Ingresar" id="basic-nav-dropdown">
-              <NavDropdown.Item href="#action/3.2">
+              <NavLink to="/login" className="dropdown-item">
                 Iniciar Sesión
-              </NavDropdown.Item>
+              </NavLink>
               <NavDropdown.Divider />
-              <NavDropdown.Item href="#action/3.3">Registrarse</NavDropdown.Item>
+              <NavLink to="/registro" className="dropdown-item">Registrarse</NavLink>
             </NavDropdown>
           </Nav>
         </Navbar.Collapse>
