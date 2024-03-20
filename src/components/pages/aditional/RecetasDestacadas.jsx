@@ -1,11 +1,12 @@
 import { Carousel, Image } from "react-bootstrap";
+import { Link } from "react-router-dom";
 
 const RecetasDestacadas = () => {
   return (
     <section className="mb-4">
       <div className="d-flex align-items-center mb-3 flex-wrap justify-content-center justify-content-md-start">
         <h2 className="me-3">Recetas destacadas</h2>
-        <a href="">Ver todas las recetas</a>
+        <Link to="/recetas">Ver todas las recetas</Link>
       </div>
       <Carousel fade>
         <Carousel.Item>
