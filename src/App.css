@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
 
 #root {
   display: flex;
@@ -20,12 +21,27 @@ h2 {
   font-size: 50px;
 }
 
-h3, h5,
+h3,
+h4,
+h5,
 a,
-p {
+p,
+option,
+select {
   font-family: "Montserrat", sans-serif;
   font-weight: 400;
   font-style: normal;
+}
+
+button {
+  font-family: "Playfair Display", serif !important;
+  font-weight: 400 !important;
+  font-style: normal !important;
+}
+
+#logotipo {
+  font-family: "Great Vibes", cursive;
+  font-size: 30px;
 }
 
 .bgNavBar {
@@ -85,11 +101,60 @@ footer p {
   object-fit: cover;
 }
 
-.imgRecetasDestacadas{
+.imgRecetasDestacadas {
   height: 450px;
   width: 100%;
   filter: brightness(0.5);
   object-fit: cover;
+}
+
+.card {
+  background-color: transparent;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.3s ease;
+}
+
+.card:hover {
+  box-shadow: 0 8px 16px rgba(255, 0, 0, 0.5);
+}
+
+.card-img-top {
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+.btnCardReceta {
+  background-color: #fd7e14;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 0.5rem 1rem;
+  text-transform: uppercase;
+  font-weight: bold;
+  font-family: "Pacifico", cursive;
+  font-weight: 400;
+  font-style: normal;
+  transition: background-color 0.3s ease;
+}
+
+.btnCardReceta:hover {
+  background-color: red;
+  color: #fff;
+}
+
+.btnCategoria {
+  background-color: transparent;
+  border: 1px solid red;
+  color: black;
+  width: 100%;
+  text-align: center;
+  border-radius: 20px;
+}
+
+.btnCategoria:hover {
+  background-color: red;
+  color: #fff;
 }
 
 /* Estilos para dispositivos medianos */
