@@ -157,6 +157,20 @@ footer p {
   color: #fff;
 }
 
+.imgTabla{
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+}
+
+.filaDescripcion{
+  max-width: 250px;
+}
+
+.filaNombre{
+  max-width: 150px;
+}
+
 /* Estilos para dispositivos medianos */
 @media (max-width: 992px) {
   h1 {

@@ -8,6 +8,7 @@ import Nosotros from "./components/pages/Nosotros";
 import Error404 from "./components/pages/Error404";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Recetas from "./components/pages/Recetas";
+import Administrador from "./components/pages/Administrador";
 
 function App() {
   return (
@@ -17,6 +18,10 @@ function App() {
         <Route path="/" element={<Principal></Principal>}></Route>
         <Route path="/nosotros" element={<Nosotros></Nosotros>}></Route>
         <Route path="/recetas" element={<Recetas></Recetas>}></Route>
+        <Route
+          path="/administrador"
+          element={<Administrador></Administrador>}
+        ></Route>
         <Route path="/*" element={<Error404></Error404>}></Route>
       </Routes>
       <Footer></Footer>
