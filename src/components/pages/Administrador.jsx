@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Table, Row, Col, Container, Form } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import ItemReceta from "./recetas/ItemReceta";
+import ItemUsuario from "./usuarios/ItemUsuario";
 
 const Administrador = () => {
   const [tabla, setTabla] = useState("Recetas");
@@ -57,8 +58,11 @@ const Administrador = () => {
             <th>Email</th>
             <th>Usuario</th>
             <th>Rol</th>
+            <th>Opciones</th>
           </thead>
-          <tbody></tbody>
+          <tbody>
+            <ItemUsuario></ItemUsuario>
+          </tbody>
         </Table>
       )}
     </Container>
