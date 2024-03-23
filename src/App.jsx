@@ -10,6 +10,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Recetas from "./components/pages/Recetas";
 import Administrador from "./components/pages/Administrador";
 import FormularioRecetas from "./components/pages/recetas/FormularioRecetas";
+import FormularioUsuarios from "./components/pages/usuarios/FormularioUsuarios";
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
           element={<Administrador></Administrador>}
         ></Route>
         <Route path="/administrador/crear" element={<FormularioRecetas></FormularioRecetas>}></Route>
+        <Route path="/administrador/crearusuario" element={<FormularioUsuarios></FormularioUsuarios>}></Route>
         <Route path="/*" element={<Error404></Error404>}></Route>
       </Routes>
       <Footer></Footer>

@@ -29,7 +29,7 @@ const Administrador = () => {
             </Link>
           )}
           {tabla === "Usuarios" && (
-            <Link className="btn btn-primary" to="/administrador/crear">
+            <Link className="btn btn-primary" to="/administrador/crearusuario">
               <i className="bi bi-person-add"></i>
             </Link>
           )}
