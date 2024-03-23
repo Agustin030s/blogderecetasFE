@@ -1,5 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
-@import url('https://fonts.googleapis.com/css2?family=Pacifico&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Pacifico&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap");
 
 #root {
   display: flex;
@@ -33,7 +33,8 @@ select {
   font-style: normal;
 }
 
-button, .btn {
+button,
+.btn {
   font-family: "Playfair Display", serif !important;
   font-weight: 400 !important;
   font-style: normal !important;
@@ -157,32 +158,55 @@ footer p {
   color: #fff;
 }
 
-.imgTabla{
+.imgTabla {
   width: 150px;
   height: 150px;
   object-fit: cover;
 }
 
-.filaDescripcion{
+.filaDescripcion {
   max-width: 250px;
 }
 
-.filaNombre{
+.filaNombre {
   max-width: 150px;
 }
 
-.filaEmail{
+.filaEmail {
   max-width: 200px;
 }
 
-.tituloFormulario{
+.tituloFormulario {
   font-family: "Montserrat", sans-serif;
   font-weight: 400;
   font-style: normal;
 }
 
-#ingredientes, #preparacion{
-  resize: none
+#ingredientes,
+#preparacion {
+  resize: none;
+}
+
+.btnGoogle {
+  border: 1px solid #4CAF50;
+  width: 250px;
+  text-align: center;
+}
+
+.btnFacebook {
+  border: 1px solid #1877f2;
+  width: 250px;
+  text-align: center;
+}
+
+.btnGoogle:hover {
+  color: #fff;
+  background-color: #4CAF50;
+}
+
+.btnFacebook:hover {
+  color: #fff;
+  background-color: #1877f2;
 }
 
 /* Estilos para dispositivos medianos */

@@ -16,7 +16,7 @@ const FormularioRecetas = () => {
   }
 
   return (
-    <Container className="my-4">
+    <Container className="my-4 mainContainer">
       <h2 className="tituloFormulario mb-2 text-center">Agregar Receta</h2>
       <Form onSubmit={handleSubmit(onSubmit)}>
         <Form.Group className="mb-3" controlId="nombreReceta">
