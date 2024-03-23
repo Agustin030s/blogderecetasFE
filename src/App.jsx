@@ -13,6 +13,7 @@ import FormularioRecetas from "./components/pages/recetas/FormularioRecetas";
 import FormularioUsuarios from "./components/pages/usuarios/FormularioUsuarios";
 import Login from "./components/pages/Login";
 import Registro from "./components/pages/Registro";
+import DetalleReceta from "./components/pages/DetalleReceta";
 
 function App() {
   return (
@@ -36,6 +37,7 @@ function App() {
         ></Route>
         <Route path="/login" element={<Login></Login>}></Route>
         <Route path="/registro" element={<Registro></Registro>}></Route>
+        <Route path="/detalleReceta" element={<DetalleReceta></DetalleReceta>}></Route>
         <Route path="/*" element={<Error404></Error404>}></Route>
       </Routes>
       <Footer></Footer>
