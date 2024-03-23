@@ -12,6 +12,7 @@ import Administrador from "./components/pages/Administrador";
 import FormularioRecetas from "./components/pages/recetas/FormularioRecetas";
 import FormularioUsuarios from "./components/pages/usuarios/FormularioUsuarios";
 import Login from "./components/pages/Login";
+import Registro from "./components/pages/Registro";
 
 function App() {
   return (
@@ -34,6 +35,7 @@ function App() {
           element={<FormularioUsuarios></FormularioUsuarios>}
         ></Route>
         <Route path="/login" element={<Login></Login>}></Route>
+        <Route path="/registro" element={<Registro></Registro>}></Route>
         <Route path="/*" element={<Error404></Error404>}></Route>
       </Routes>
       <Footer></Footer>

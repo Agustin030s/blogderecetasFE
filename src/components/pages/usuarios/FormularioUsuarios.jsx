@@ -122,7 +122,7 @@ const FormularioUsuarios = () => {
           </Form.Select>
           <Form.Text className="text-danger">{errors.rol?.message}</Form.Text>
         </Form.Group>
-        <Form.Group className="mb-3" controlId="usuario">
+        <Form.Group className="mb-3">
           <Button type="submit" variant="danger" className="me-2">
             Agregar
           </Button>

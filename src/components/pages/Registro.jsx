@@ -1,8 +1,7 @@
-import { Container, Row, Col, Form, Button, FloatingLabel } from "react-bootstrap";
+import { Container, Form, Button, Row, Col } from "react-bootstrap";
 import { useForm } from "react-hook-form";
-import { Link } from "react-router-dom";
 
-const Login = () => {
+const Registro = () => {
   const {
     register,
     handleSubmit,
@@ -15,12 +14,34 @@ const Login = () => {
     console.log(usuario);
   };
   return (
-    <Container className="my-5 mainContainer">
-      <h2 className="tituloFormulario mb-3">Iniciar Sesión</h2>
-      <Row>
+    <Container className="my-4 mainContainer">
+      <h2 className="tituloFormulario text-center">¡Registrate!</h2>
+      <Row className="justify-content-center align-items-center">
         <Col md="6">
           <Form onSubmit={handleSubmit(onSubmit)}>
-            <FloatingLabel className="mb-3" controlId="email" label="Email">
+            <Form.Group className="mb-3" controlId="nombreCompleto">
+              <Form.Label>Nombre Completo*</Form.Label>
+              <Form.Control
+                type="text"
+                placeholder="Ej. Juan Perez"
+                {...register("nombreCompleto", {
+                  required: "El nombre completo es obligatorio",
+                  minLength: {
+                    value: 3,
+                    message: "El nombre debe tener 3 caracteres como mínimo",
+                  },
+                  maxLength: {
+                    value: 60,
+                    message: "El nombre debe tener 60 caracteres como máximo",
+                  },
+                })}
+              ></Form.Control>
+              <Form.Text className="text-danger">
+                {errors.nombreCompleto?.message}
+              </Form.Text>
+            </Form.Group>
+            <Form.Group className="mb-3" controlId="email">
+              <Form.Label>Email*</Form.Label>
               <Form.Control
                 type="email"
                 placeholder="usuario@usuario.com"
@@ -44,8 +65,30 @@ const Login = () => {
               <Form.Text className="text-danger">
                 {errors.email?.message}
               </Form.Text>
-            </FloatingLabel>
-            <FloatingLabel className="mb-3" controlId="clave" label="Clave">
+            </Form.Group>
+            <Form.Group className="mb-3" controlId="usuario">
+              <Form.Label>Usuario*</Form.Label>
+              <Form.Control
+                type="text"
+                placeholder="userTwo"
+                {...register("usuario", {
+                  required: "El nombre de usuario es obligatorio",
+                  minLength: {
+                    value: 5,
+                    message: "El usuario debe tener 5 caracteres como mínimo",
+                  },
+                  maxLength: {
+                    value: 20,
+                    message: "El usuario debe tener 20 caracteres como máximo",
+                  },
+                })}
+              ></Form.Control>
+              <Form.Text className="text-danger">
+                {errors.usuario?.message}
+              </Form.Text>
+            </Form.Group>
+            <Form.Group className="mb-3" controlId="clave">
+              <Form.Label>Clave*</Form.Label>
               <Form.Control
                 type="password"
                 placeholder="*********"
@@ -69,28 +112,17 @@ const Login = () => {
               <Form.Text className="text-danger">
                 {errors.clave?.message}
               </Form.Text>
-            </FloatingLabel>
-            <Form.Group className="mb-3" controlId="usuario">
+            </Form.Group>
+            <Form.Group className="mb-3">
               <Button type="submit" variant="danger" className="me-2">
-                Ingresar <i class="bi bi-arrow-bar-right"></i>
+                Registrarse
               </Button>
             </Form.Group>
           </Form>
-        </Col>
-        <Col md="6">
-          <h4 className="text-center mb-3">Inicia sesión con otros medios</h4>
-          <div className="d-flex flex-column justify-content-center align-items-center">
-            <Link to="/error404" className="btn btnGoogle mb-2">
-            <i class="bi bi-google"></i> Continuar con Google
-            </Link>
-            <Link to="/error404" className="btn btnFacebook mb-2">
-            <i class="bi bi-facebook"></i> Continuar con Facebook
-            </Link>
-          </div>
         </Col>
       </Row>
     </Container>
   );
 };
 
-export default Login;
+export default Registro;
