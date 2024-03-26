@@ -70,8 +70,8 @@ const FormularioRecetas = () => {
                 message: "La descripción debe tener como mínimo 10 caracteres",
               },
               maxLength: {
-                value: 150,
-                message: "La descripción debe tener como máximo 150 caracteres",
+                value: 200,
+                message: "La descripción debe tener como máximo 200 caracteres",
               },
             })}
           />
