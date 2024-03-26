@@ -1,8 +1,16 @@
 import { Button, Container, Form } from "react-bootstrap";
 import { useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
+import {
+  obtenerRecetaAPI,
+  editarRecetaAPI,
+  crearRecetaAPI,
+} from "../../../helpers/queriesRecetas";
+import Swal from "sweetalert2";
+import { useEffect } from "react";
 
-const FormularioRecetas = () => {
+const FormularioRecetas = ({ editar, titulo }) => {
   const {
     register,
     handleSubmit,
@@ -11,9 +19,63 @@ const FormularioRecetas = () => {
     setValue,
   } = useForm();
 
-  const onSubmit = (receta) =>{
-    console.log(receta);
-  }
+  const { id } = useParams();
+  const navegacion = useNavigate();
+
+  useEffect(() => {
+    cargarDatosReceta();
+  }, []);
+
+  const cargarDatosReceta = async () => {
+    const respuesta = await obtenerRecetaAPI(id);
+    if (respuesta.status === 200) {
+      const recetaBuscada = await respuesta.json();
+      setValue("nombreReceta", recetaBuscada.nombreReceta);
+      setValue("categoria", recetaBuscada.categoria);
+      setValue("descripcionBreve", recetaBuscada.descripcionBreve);
+      setValue("imagen", recetaBuscada.imagen);
+      setValue("ingredientes", recetaBuscada.ingredientes);
+      setValue("preparacion", recetaBuscada.preparacion);
+      setValue("tiempoDePreparacion", recetaBuscada.tiempoDePreparacion);
+      setValue("autor", recetaBuscada.autor);
+    }
+  };
+
+  const onSubmit = async (receta) => {
+    if (editar) {
+      const respuesta = await editarRecetaAPI(receta, id);
+      if (respuesta.status === 200) {
+        Swal.fire({
+          title: "Receta modificada",
+          text: `La receta "${receta.nombreReceta}" fue modificada correctamente`,
+          icon: "success",
+        });
+        navegacion("/administrador");
+      } else {
+        Swal.fire({
+          title: "Ocurrio un error",
+          text: `La receta "${receta.nombreReceta}" no pudo ser modificada, intentelo nuevamente dentro de unos minutos`,
+          icon: "error",
+        });
+      }
+    } else {
+      const respuesta = await crearRecetaAPI(receta);
+      if (respuesta.status === 201) {
+        Swal.fire({
+          title: "Receta creada",
+          text: `La receta "${receta.nombreReceta}" fue creada correctamente`,
+          icon: "success",
+        });
+        reset();
+      } else {
+        Swal.fire({
+          title: "Ocurrio un error",
+          text: `La receta "${receta.nombreReceta}" no pudo ser creada, intentelo nuevamente dentro de unos minutos`,
+          icon: "error",
+        });
+      }
+    }
+  };
 
   return (
     <Container className="my-4 mainContainer">

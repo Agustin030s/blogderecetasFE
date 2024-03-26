@@ -1,14 +1,51 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Table, Row, Col, Container, Form } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import ItemReceta from "./recetas/ItemReceta";
 import ItemUsuario from "./usuarios/ItemUsuario";
+import { listarRecetasAPI } from "../../helpers/queriesRecetas";
+import { listarUsuariosAPI } from "../../helpers/queriesUsuarios";
 
 const Administrador = () => {
   const [tabla, setTabla] = useState("Recetas");
+  const [recetas, setRecetas] = useState([]);
+  const [usuarios, setUsuarios] = useState([]);
 
   const handleOnChange = (event) => {
     setTabla(event.target.value);
+  };
+
+  useEffect(() => {
+    obtenerRecetas();
+    obtenerUsuarios();
+  }, []);
+
+  const obtenerRecetas = async () => {
+    const respuesta = await listarRecetasAPI();
+    if (respuesta.status === 200) {
+      const data = await respuesta.json();
+      setRecetas(data);
+    } else {
+      Swal.fire({
+        title: "Ocurrio un error",
+        text: `Intenta está operación en unos minutos`,
+        icon: "error",
+      });
+    }
+  };
+
+  const obtenerUsuarios = async () => {
+    const respuesta = await listarUsuariosAPI();
+    if (respuesta.status === 200) {
+      const data = await respuesta.json();
+      setUsuarios(data);
+    } else {
+      Swal.fire({
+        title: "Ocurrio un error",
+        text: `Intenta está operación en unos minutos`,
+        icon: "error",
+      });
+    }
   };
 
   return (
@@ -47,7 +84,9 @@ const Administrador = () => {
             <th>Opciones</th>
           </thead>
           <tbody>
-            <ItemReceta></ItemReceta>
+            {recetas.map((receta) => (
+              <ItemReceta key={receta._id} receta={receta} setRecetas={setRecetas}></ItemReceta>
+            ))}
           </tbody>
         </Table>
       )}
@@ -61,7 +100,9 @@ const Administrador = () => {
             <th>Opciones</th>
           </thead>
           <tbody>
-            <ItemUsuario></ItemUsuario>
+            {usuarios.map((user) => (
+              <ItemUsuario key={user._id} usuario={user} setUsuarios={setUsuarios}></ItemUsuario>
+            ))}
           </tbody>
         </Table>
       )}

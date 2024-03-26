@@ -1,13 +1,34 @@
 import { Container, Row, Col, Form, Button } from "react-bootstrap";
 import CardReceta from "./recetas/CardReceta";
 import BannerPrincipal from "./aditional/BannerPrincipal";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { listarRecetasAPI } from "../../helpers/queriesRecetas";
+import Swal from "sweetalert2";
 
 const Recetas = () => {
   const [filtro, setFiltro] = useState("verTodo");
+  const [recetas, setRecetas] = useState([]);
 
   const handleOnChange = (event) => {
     setFiltro(event.target.value);
+  };
+
+  useEffect(() => {
+    obtenerRecetas();
+  }, []);
+
+  const obtenerRecetas = async () => {
+    const respuesta = await listarRecetasAPI();
+    if (respuesta.status === 200) {
+      const data = await respuesta.json();
+      setRecetas(data);
+    } else {
+      Swal.fire({
+        title: "Ocurrio un error",
+        text: `Intenta está operación en unos minutos`,
+        icon: "error",
+      });
+    }
   };
 
   return (
@@ -31,7 +52,9 @@ const Recetas = () => {
                     placeholder="Ingrese el nombre de la receta"
                     className="me-2"
                   ></Form.Control>
-                  <Button type="submit"><i className="bi bi-search"></i></Button>
+                  <Button type="submit">
+                    <i className="bi bi-search"></i>
+                  </Button>
                 </Form.Group>
               </Form>
             )}
@@ -54,11 +77,9 @@ const Recetas = () => {
           </Col>
         </Row>
         <Row className="justify-content-around align-items-center">
-          <CardReceta></CardReceta>
-          <CardReceta></CardReceta>
-          <CardReceta></CardReceta>
-          <CardReceta></CardReceta>
-          <CardReceta></CardReceta>
+          {recetas.map((receta) => (
+            <CardReceta key={receta._id} receta={receta}></CardReceta>
+          ))}
         </Row>
       </Container>
     </>

@@ -30,14 +30,28 @@ function App() {
         <Route
           path="/administrador/crear"
           element={<FormularioRecetas></FormularioRecetas>}
+          editar={false}
+          titulo="Agregar Receta"
+        ></Route>
+        <Route
+          path="/administrador/editar/:id"
+          element={<FormularioRecetas></FormularioRecetas>}
+          editar={true}
+          titulo="Editar Receta"
         ></Route>
         <Route
           path="/administrador/crearusuario"
           element={<FormularioUsuarios></FormularioUsuarios>}
+          editar={false}
+        ></Route>
+        <Route
+          path="/administrador/editarusuario/:id"
+          element={<FormularioUsuarios></FormularioUsuarios>}
+          editar={true}
         ></Route>
         <Route path="/login" element={<Login></Login>}></Route>
         <Route path="/registro" element={<Registro></Registro>}></Route>
-        <Route path="/detalleReceta" element={<DetalleReceta></DetalleReceta>}></Route>
+        <Route path="/detallereceta/:id" element={<DetalleReceta></DetalleReceta>}></Route>
         <Route path="/*" element={<Error404></Error404>}></Route>
       </Routes>
       <Footer></Footer>

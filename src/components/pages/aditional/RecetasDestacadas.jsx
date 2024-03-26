@@ -1,7 +1,30 @@
+import { useEffect, useState } from "react";
 import { Carousel, Image } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import { obtenerPrimerasRecetasAPI } from "../../../helpers/queriesRecetas";
+import Swal from "sweetalert2";
 
 const RecetasDestacadas = () => {
+  const [recetasDestacadas, setRecetasDestacadas] = useState([]);
+
+  useEffect(() => {
+    obtenerRecetas();
+  }, []);
+
+  const obtenerRecetas = async () => {
+    const respuesta = await obtenerPrimerasRecetasAPI();
+    if (respuesta.status === 200) {
+      const data = await respuesta.json();
+      setRecetasDestacadas(data);
+    } else {
+      Swal.fire({
+        title: "Ocurrio un error",
+        text: `Intenta está operación en unos minutos`,
+        icon: "error",
+      });
+    }
+  };
+
   return (
     <section className="mb-4">
       <div className="d-flex align-items-center mb-3 flex-wrap justify-content-center justify-content-md-start">
@@ -9,39 +32,19 @@ const RecetasDestacadas = () => {
         <Link to="/recetas">Ver todas las recetas</Link>
       </div>
       <Carousel fade>
-        <Carousel.Item>
-          <Image
-            src="https://i.ytimg.com/vi/I7wh6CBAhcw/maxresdefault.jpg"
-            fluid
-            className="imgRecetasDestacadas"
-          ></Image>
-          <Carousel.Caption>
-            <h3>Costillar a las Llamas</h3>
-            <p>Descripcion breve</p>
-          </Carousel.Caption>
-        </Carousel.Item>
-        <Carousel.Item>
-          <Image
-            src="https://www.estiloytendencia.com/u/fotografias/m/2023/10/1/f425x230-51169_65151_5679.jpg"
-            fluid
-            className="imgRecetasDestacadas"
-          ></Image>
-          <Carousel.Caption>
-            <h3>Hamburguesas Caseras a la Parrilla</h3>
-            <p>Descripcion breve</p>
-          </Carousel.Caption>
-        </Carousel.Item>
-        <Carousel.Item>
-          <Image
-            src="https://calisa.com.ar/wp-content/uploads/2022/02/pollo-al-disco-youtube-2.jpg"
-            fluid
-            className="imgRecetasDestacadas"
-          ></Image>
-          <Carousel.Caption>
-            <h3>Pollo al Disco con Arroz</h3>
-            <p>Descripcion breve</p>
-          </Carousel.Caption>
-        </Carousel.Item>
+        {recetasDestacadas.map((receta) => (
+          <Carousel.Item>
+            <Image
+              src={receta.imagen}
+              fluid
+              className="imgRecetasDestacadas"
+            ></Image>
+            <Carousel.Caption>
+              <h3>{receta.nombreReceta}</h3>
+              <p>{receta.descripcionBreve}</p>
+            </Carousel.Caption>
+          </Carousel.Item>
+        ))}
       </Carousel>
     </section>
   );
